@@ -8,10 +8,10 @@
 using namespace std;
 
 void menu() {
-  cout << "Menu Options\n";
-  cout << "1. Display InOrder\n";
-  cout << "2. Display PreOrder\n";
-  cout << "3. Display PostOrder\n";
+  cout << "\nMenu Options\n";
+  cout << "1. Display In Order\n";
+  cout << "2. Display Pre Order\n";
+  cout << "3. Display Post Order\n";
   cout << "4. Search Code\n";
   cout << "5. Insert Code\n";
   cout << "6. Delete Code\n";
@@ -46,12 +46,15 @@ int main() {
 
     switch (choice) {
       case 1:
+        cout << "Display In Order\n";
         tree.displayInOrder();
         break;
       case 2:
+        cout << "Display Pre Order\n";
         tree.displayPreOrder();
         break;
       case 3:
+        cout << "Display Post Order\n";
         tree.displayPostOrder();
         break;
       case 4:
@@ -63,17 +66,36 @@ int main() {
           cout << input << " not found.\n";
         }
         break;
+      case 5:
+        cout << "Enter code to insert: ";
+        cin >> input;
+        tree.insertNode(input);
+        break;
+
+      case 6:
+        cout << "Enter code to delete: ";
+        cin >> input;
+        tree.remove(input);
+        break;
+      case 7:
+        cout << "Enter code to modify: ";
+        cin >> input;
+        if (tree.searchNode(input)) {
+          tree.remove(input);
+          cout << "Enter new code: ";
+          cin >> newCode;
+          tree.insertNode(newCode);
+        } else {
+          cout << "Code not found.\n";
+        }
+        break;
+      case 8:
+        cout << "Exiting program.\n";
+        break;
+      default:
+        cout << "Invalid choice. Try again.\n";
     }
-  }
-
-  cout << "In Order\n";
-  tree.displayInOrder();
-
-  cout << "Pre Order\n";
-  tree.displayPreOrder();
-
-  cout << "Post Order\n";
-  tree.displayPostOrder();
+  } while (choice != 8);
 
   return 0;
 }
