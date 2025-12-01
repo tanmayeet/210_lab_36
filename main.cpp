@@ -1,16 +1,27 @@
 // COMSC210 | Lab 36 | Tanmayee Chalamalasetti
 // IDE Used: VS Code
+#include <fstream>
 #include <iostream>
+#include <string>
 
 #include "IntBinaryTree.h"
 using namespace std;
 
 int main() {
   IntBinaryTree tree;
+  ifstream infile("codes.txt");
 
-  tree.insertNode("uANq6eH7");
-  tree.insertNode("gwlXSBJv");
-  tree.insertNode("i6QN2GdS");
+  if (!infile) {
+    cout << "Error! Could not open codes.txt.\n";
+    return 1;
+  }
+
+  string code;
+
+  while (infile >> code) {
+    tree.insertNode(code);
+  }
+  infile.close();
 
   cout << "In Order\n";
   tree.displayInOrder();
