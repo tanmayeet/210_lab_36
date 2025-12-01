@@ -37,6 +37,35 @@ int main() {
 
   infile.close();
 
+  int choice;
+  do {
+    menu();
+    cin >> choice;
+
+    string input, newCode;
+
+    switch (choice) {
+      case 1:
+        tree.displayInOrder();
+        break;
+      case 2:
+        tree.displayPreOrder();
+        break;
+      case 3:
+        tree.displayPostOrder();
+        break;
+      case 4:
+        cout << "Enter code to search: ";
+        cin >> input;
+        if (tree.searchNode(input)) {
+          cout << "Found " << input << endl;
+        } else {
+          cout << input << " not found.\n";
+        }
+        break;
+    }
+  }
+
   cout << "In Order\n";
   tree.displayInOrder();
 
