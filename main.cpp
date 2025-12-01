@@ -13,9 +13,9 @@ void menu() {
   cout << "2. Display Pre Order\n";
   cout << "3. Display Post Order\n";
   cout << "4. Search Code\n";
-  cout << "5. Insert Code\n";
+  cout << "5. Add Code\n";
   cout << "6. Delete Code\n";
-  cout << "7. Modify Code\n";
+  cout << "7. Modify Records\n";
   cout << "8. Exit\n";
   cout << "Enter choice: ";
 }
@@ -67,7 +67,7 @@ int main() {
         }
         break;
       case 5:
-        cout << "Enter code to insert: ";
+        cout << "Enter code to add: ";
         cin >> input;
         tree.insertNode(input);
         break;
@@ -86,7 +86,7 @@ int main() {
           cin >> newCode;
           tree.insertNode(newCode);
         } else {
-          cout << "Code not found.\n";
+          cout << "Record not found.\n";
         }
         break;
       case 8:
@@ -96,6 +96,5 @@ int main() {
         cout << "Invalid choice. Try again.\n";
     }
   } while (choice != 8);
-
   return 0;
 }
