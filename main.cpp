@@ -7,6 +7,19 @@
 #include "IntBinaryTree.h"
 using namespace std;
 
+void menu() {
+  cout << "Menu Options\n";
+  cout << "1. Display InOrder\n";
+  cout << "2. Display PreOrder\n";
+  cout << "3. Display PostOrder\n";
+  cout << "4. Search Code\n";
+  cout << "5. Insert Code\n";
+  cout << "6. Delete Code\n";
+  cout << "7. Modify Code\n";
+  cout << "8. Exit\n";
+  cout << "Enter choice: ";
+}
+
 int main() {
   IntBinaryTree tree;
   ifstream infile("codes.txt");
@@ -21,6 +34,7 @@ int main() {
   while (infile >> code) {
     tree.insertNode(code);
   }
+
   infile.close();
 
   cout << "In Order\n";
@@ -31,17 +45,6 @@ int main() {
 
   cout << "Post Order\n";
   tree.displayPostOrder();
-
-  if (tree.searchNode("gwlXSBJv")) {
-    cout << "Found gwlXSBJv\n";
-  } else {
-    cout << "gwlXSBJv not found.\n";
-  }
-
-  cout << "Remove\n";
-  tree.remove("gwlXSBJv");
-
-  tree.displayInOrder();
 
   return 0;
 }
